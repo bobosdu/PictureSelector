@@ -959,6 +959,7 @@ public abstract class PictureCommonFragment extends Fragment implements IPicture
                 onInterceptCameraEvent(SelectMimeType.TYPE_VIDEO);
             } else {
                 Intent cameraIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                cameraIntent.putExtra("android.intent.extra.quickCapture",true);
                 if (cameraIntent.resolveActivity(getActivity().getPackageManager()) != null) {
                     ForegroundService.startForegroundService(getAppContext());
                     Uri videoUri = MediaStoreUtils.createCameraOutVideoUri(getAppContext(), config);
